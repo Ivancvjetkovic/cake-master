@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cake_app",
+            "cwd": "cake_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "cake_app (profile mode)",
+            "cwd": "cake_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "cake_app (release mode)",
+            "cwd": "cake_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "cake_app",
+            "cwd": "cake_app\\cake_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "cake_app (profile mode)",
+            "cwd": "cake_app\\cake_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "cake_app (release mode)",
+            "cwd": "cake_app\\cake_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
