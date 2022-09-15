@@ -77,7 +77,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         children: [
                           (buttonState.buttonStateStatus ==
                                   ButtonStateStatus.loading)
-                              ? const Expanded(
+                              ? const Flexible(
                                   child: SizedBox(
                                     height: 200,
                                     width: 300,
