@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'ButtonCounterEvent.dart';
 
 class ButtonCounterBloc extends Bloc<ButtonCounterEvent, ButtonCounterState> {
-  ButtonCounterBloc() : super(ButtonCounterState(value: 0)) {
+  ButtonCounterBloc() : super(ButtonCounterState(value: 1)) {
     on<ButtonCounterIncrement>(_increment);
     on<ButtonCounterDecrement>(_decrement);
   }

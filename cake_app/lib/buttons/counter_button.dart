@@ -40,7 +40,7 @@ class _ButtonState extends State<Button> {
               color: Colors.white,
               iconSize: 25,
               onPressed: () {
-                state.value > 0
+                state.value > 1
                     ? context
                         .read<ButtonCounterBloc>()
                         .add(ButtonCounterDecrement())
@@ -66,6 +66,7 @@ class Price extends StatelessWidget {
     Key? key,
     required this.currentIndex,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double currentPrice = 24;

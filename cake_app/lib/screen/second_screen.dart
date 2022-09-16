@@ -5,9 +5,11 @@ import 'package:cake_app/buttons/counter_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/ButtonCounterState.dart';
 import '../bloc2/ButtonBloc.dart';
 
 const int currentIndex = 0;
+int numEggs = 4;
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});
@@ -17,10 +19,8 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
-  int? _value = 0;
   @override
   Widget build(BuildContext context) {
-    int image = 0;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -141,93 +141,103 @@ class _SecondScreenState extends State<SecondScreen> {
                     builder: (context, state) {
                       return Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 90,
-                                width: 50,
-                                // ignore: sort_child_properties_last
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Icon(
-                                      Icons.egg_rounded,
-                                      color: Colors.white,
-                                      size: 50,
+                        child:
+                            BlocBuilder<ButtonCounterBloc, ButtonCounterState>(
+                          builder: (context, counterState) {
+                            return Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    height: 90,
+                                    width: 50,
+                                    // ignore: sort_child_properties_last
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.egg_rounded,
+                                          color: Colors.white,
+                                          size: 50,
+                                        ),
+                                        Text(
+                                          '${(state.value + counterState.value) * 4} Eggs ',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      '4 Eggs',
-                                      style: TextStyle(color: Colors.white),
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 20, 8, 51),
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomLeft: Radius.circular(20)),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                                decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 20, 8, 51),
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      bottomLeft: Radius.circular(20)),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                                height: 90.0,
-                                width: 12.0,
-                                child: VerticalDivider(color: Colors.white)),
-                            Expanded(
-                              child: Container(
-                                // ignore: sort_child_properties_last
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Icon(
-                                      Icons.cake_sharp,
-                                      color: Colors.white,
-                                      size: 50,
+                                const SizedBox(
+                                    height: 90.0,
+                                    width: 12.0,
+                                    child:
+                                        VerticalDivider(color: Colors.white)),
+                                Expanded(
+                                  child: Container(
+                                    // ignore: sort_child_properties_last
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.cake_sharp,
+                                          color: Colors.white,
+                                          size: 50,
+                                        ),
+                                        Text(
+                                          '${(state.value + 1) * 4} tsp Vanilla',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      '2 tsp Vanilla',
-                                      style: TextStyle(color: Colors.white),
+                                    height: 90,
+                                    width: 50,
+                                    color: const Color.fromARGB(255, 20, 8, 51),
+                                  ),
+                                ),
+                                const SizedBox(
+                                    height: 90.0,
+                                    width: 10.0,
+                                    child:
+                                        VerticalDivider(color: Colors.white)),
+                                Expanded(
+                                  child: Container(
+                                    height: 90,
+                                    width: 50,
+                                    // ignore: sort_child_properties_last
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.rice_bowl,
+                                          color: Colors.white,
+                                          size: 50,
+                                        ),
+                                        Text(
+                                          '${(state.value + 1) * 4} Cup Sugar',
+                                          style: TextStyle(color: Colors.white),
+                                        )
+                                      ],
                                     ),
-                                  ],
-                                ),
-                                height: 90,
-                                width: 50,
-                                color: const Color.fromARGB(255, 20, 8, 51),
-                              ),
-                            ),
-                            const SizedBox(
-                                height: 90.0,
-                                width: 10.0,
-                                child: VerticalDivider(color: Colors.white)),
-                            Expanded(
-                              child: Container(
-                                height: 90,
-                                width: 50,
-                                // ignore: sort_child_properties_last
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Icon(
-                                      Icons.rice_bowl,
-                                      color: Colors.white,
-                                      size: 50,
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 20, 8, 51),
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(20),
+                                          bottomRight: Radius.circular(20)),
                                     ),
-                                    Text(
-                                      '1 Cup Sugar',
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
+                                  ),
                                 ),
-                                decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 20, 8, 51),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(20),
-                                      bottomRight: Radius.circular(20)),
-                                ),
-                              ),
-                            ),
-                          ],
+                              ],
+                            );
+                          },
                         ),
                       );
                     },
